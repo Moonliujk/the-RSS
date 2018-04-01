@@ -28,7 +28,8 @@ $(function() {
          describe('Urls', function() {
            it('are defined', function() {
                allFeeds.forEach(function(item) {
-                 expect(item.url).toBeDefined();
+                 //expect(item.url).toBeDefined();
+                 expect(item.url.length).not.toBe(0);
                });
            });
          });
@@ -39,7 +40,8 @@ $(function() {
          describe('Names', function() {
            it('are defined', function() {
                allFeeds.forEach(function(item) {
-                 expect(item.name).toBeDefined();
+                 //expect(item.name).toBeDefined();
+                 expect(item.name.length).not.toBe(0);
                });
            });
          });
@@ -126,13 +128,13 @@ $(function() {
                 //第一次点击时，菜单显示
               it('the menu will show at first', function() {
                 $('.menu-icon-link').trigger('click');
-                expect($('body').hasClass('menu-hidden')).toBeFalsy();
+                expect($('body').hasClass('menu-hidden')).toBe(true);
               });
 
               //再次点击时，菜单隐藏
               it('the menu will be hidden when clicked again', function() {
                 $('.menu-icon-link').trigger('click');
-                expect($('body').hasClass('menu-hidden')).toBeTruthy();
+                expect($('body').hasClass('menu-hidden')).toBe(false);
               });
 
           });
